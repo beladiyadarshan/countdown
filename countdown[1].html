@@ -1,0 +1,44 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+p {
+  text-align: center;
+  font-size: 60px;
+  margin-top: 0px;
+}
+#demo{background-color:powderblue;
+border-radius:25%;}
+</style>
+</head>
+<body style="background-color:yellow;">
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<li>
+<p id="demo">uttarayan days remaining</p>
+</li>
+<script>
+var countDownDate = new Date("Jan 14 2019 00:00:00").getTime();
+
+var x = setInterval(function() {
+
+  var now = new Date().getTime();
+    
+  var distance = countDownDate - now;
+    
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+  document.getElementById("demo").innerHTML = days+ "d " + hours + "h "
+  + minutes + "m " + seconds + "s "
+    
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+
+</body>
+</html>
